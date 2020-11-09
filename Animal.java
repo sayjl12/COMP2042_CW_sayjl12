@@ -22,7 +22,7 @@ public class Animal extends Actor {
 	int end = 0;
 	private boolean second = false;
 	boolean noMove = false;
-	double movement = 13.3333333*2;
+	double movement = 10.1*2;
 	double movementX = 10.666666*2;
 	int imgSize = 40;
 	boolean carDeath = false;
@@ -34,8 +34,8 @@ public class Animal extends Actor {
 	ArrayList<End> inter = new ArrayList<End>();
 	public Animal(String imageLink) {
 		setImage(new Image(imageLink, imgSize, imgSize, true, true));
-		setX(300);
-		setY(679.8+movement);
+		setX(278);
+		setY(571.25);
 		imgW1 = new Image("file:src/p4_group_8_repo/froggerUp.png", imgSize, imgSize, true, true);
 		imgA1 = new Image("file:src/p4_group_8_repo/froggerLeft.png", imgSize, imgSize, true, true);
 		imgS1 = new Image("file:src/p4_group_8_repo/froggerDown.png", imgSize, imgSize, true, true);
@@ -135,8 +135,8 @@ public class Animal extends Actor {
 	public void act(long now) {
 		int bounds = 0;
 		if (getY()<0 || getY()>734) {
-			setX(300);
-			setY(679.8+movement);
+			setX(278);
+			setY(571.25);
 		}
 		if (getX()<0) {
 			move(movement*2, 0);
@@ -156,8 +156,8 @@ public class Animal extends Actor {
 				setImage(new Image("file:src/p4_group_8_repo/cardeath3.png", imgSize, imgSize, true, true));
 			}
 			if (carD == 4) {
-				setX(300);
-				setY(679.8+movement);
+				setX(278);
+				setY(571.25);
 				carDeath = false;
 				carD = 0;
 				setImage(new Image("file:src/p4_group_8_repo/froggerUp.png", imgSize, imgSize, true, true));
@@ -187,8 +187,8 @@ public class Animal extends Actor {
 				setImage(new Image("file:src/p4_group_8_repo/waterdeath4.png", imgSize,imgSize , true, true));
 			}
 			if (carD == 5) {
-				setX(300);
-				setY(679.8+movement);
+				setX(278);
+				setY(571.25);
 				waterDeath = false;
 				carD = 0;
 				setImage(new Image("file:src/p4_group_8_repo/froggerUp.png", imgSize, imgSize, true, true));
@@ -237,8 +237,8 @@ public class Animal extends Actor {
 			w=800;
 			getIntersectingObjects(End.class).get(0).setEnd();
 			end++;
-			setX(300);
-			setY(679.8+movement);
+			setX(278);
+			setY(571.25);
 		}
 		else if (getY()<413){
 			waterDeath = true;
