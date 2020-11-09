@@ -36,6 +36,14 @@ public class MyStage extends World{
 	    mediaPlayer.play();
 	}
 	
+	public void playMainMenuMusic() {
+		String musicFile = "src/p4_group_8_repo/02 Opening.mp3";
+		Media sound = new Media(new File(musicFile).toURI().toString());
+		mediaPlayer = new MediaPlayer(sound);
+		mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+		mediaPlayer.play();
+	}
+	
 	public void stopMusic() {
 		mediaPlayer.stop();
 	}
