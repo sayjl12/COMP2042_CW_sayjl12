@@ -69,6 +69,11 @@ public class Main {
 		background.start();
 		start();  
 	}
+	
+	public MyStage getbackground() {
+		return background;
+	}
+	
 	public void createTimer() {
         timer = new AnimationTimer() {
             @Override
