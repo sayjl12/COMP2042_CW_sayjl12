@@ -13,8 +13,14 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class MainMenu extends Application {
+	
+	MyStage mainBackground;
+	private MySubScene howToPlaySubScene;
+	List<MyButton> mainMenuButtons;
+	
 	@Override
 	public void start(Stage stage) {
+		mainMenuButtons = new ArrayList<>();
 		MyStage background = new MyStage();
 		Scene scene = new Scene(background,600,650);
 		BackgroundImage bImage = new BackgroundImage("file:src/p4_group_8_repo/mainmenu.jpg");
@@ -25,82 +31,94 @@ public class MainMenu extends Application {
 		stage.setScene(scene);
 		stage.show();
 		// background.playMainMenuMusic();
-		background.add(new Title(500, 50, 125));
-
-		Button btnStart = new Button("START");
-		btnStart.setFont(Font.font("Berlin Sans FB", 28));
-		btnStart.setStyle("-fx-background-color: #8FBC8F");
-		btnStart.setOnMouseEntered(new EventHandler<MouseEvent>() {
+		
+		addTitle();
+		createStartButton();
+		createHowToPlayButton();
+		createExitButton();
+		createHowToPlaySubScene();
+	}
+	
+	public MyStage getBackground() {
+		return mainBackground;
+	}
+	
+	public void addButton(MyButton button) {
+		button.setLayoutX(200);
+		button.setLayoutY(430+mainMenuButtons.size()*65);
+		mainMenuButtons.add(button);
+		mainBackground.getChildren().add(button);
+	}
+	
+	public void createStartButton() {
+		MyButton btnStart = new MyButton("START", "Berlin Sans FB", 25, "#8FBC8F");
+		btnStart.mouseEntered();
+		btnStart.mouseExited();
+		btnStart.mouseClicked();
+		btnStart.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
-			public void handle(MouseEvent e) {
-				AudioClip ac = new AudioClip("file:src/p4_group_8_repo/steven_hammon_multimedia_rollover_tone.mp3");
-				ac.play();
-				btnStart.setScaleX(1.1);
-				btnStart.setScaleY(1.1);
-				btnStart.setStyle("-fx-background-color: #6aa66a");
-
+			public void handle(ActionEvent e) {
+				Main maingame = new Main();
+				mainBackground.getScene().setRoot(maingame.getbackground());
+				// background.stopMusic();
 			}
 		});
-		btnStart.setOnMouseExited(new EventHandler<MouseEvent>() {
+		addButton(btnStart);
+	}
+	
+	public void createHowToPlayButton() {
+		MyButton btnHowToPlay = new MyButton("HOW TO PLAY", "Berlin Sans FB", 25, "#8FBC8F");
+		btnHowToPlay.mouseEntered();
+		btnHowToPlay.mouseExited();
+		btnHowToPlay.mouseClicked();
+		addButton(btnHowToPlay);
+		btnHowToPlay.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
-			public void handle(MouseEvent e) {
-				btnStart.setScaleX(1);
-				btnStart.setScaleY(1);
-				btnStart.setStyle("-fx-background-color:#8FBC8F");
+			public void handle(ActionEvent e) {
+				howToPlaySubScene.moveSubScene();
 			}
 		});
-		btnStart.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent e) {
-				AudioClip ac = new AudioClip("file:src/p4_group_8_repo/multimedia_button_click_004.mp3");
-				ac.play();
-			}
-		});
-
-		btnStart.setOnAction(event -> {
-			Main maingame = new Main();
-			stage.getScene().setRoot(maingame.getbackground());
-			// background.stopMusic();
-		});
-		Button btnExit = new Button("EXIT");
-		btnExit.setFont(Font.font("Berlin Sans FB", 28));
-		btnExit.setStyle("-fx-background-color: #8FBC8F");
-		btnExit.setOnMouseEntered(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent e) {
-				AudioClip ac = new AudioClip("file:src/p4_group_8_repo/steven_hammon_multimedia_rollover_tone.mp3");
-				ac.setCycleCount(1);
-				ac.play();
-				btnExit.setScaleX(1.1);
-				btnExit.setScaleY(1.1);
-				btnExit.setStyle("-fx-background-color: #6aa66a");
-
-			}
-		});
-		btnExit.setOnMouseExited(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent e) {
-				btnExit.setScaleX(1);
-				btnExit.setScaleY(1);
-				btnExit.setStyle("-fx-background-color:#8FBC8F");
-			}
-		});
-		btnExit.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent e) {
-				AudioClip ac = new AudioClip("file:src/p4_group_8_repo/multimedia_button_click_004.mp3");
-				ac.setCycleCount(1);
-				ac.play();
-			}
-		});
+	}
+	
+	public void createExitButton() {
+		MyButton btnExit = new MyButton("EXIT", "Berlin Sans FB", 25, "#8FBC8F");
+		btnExit.mouseEntered();
+		btnExit.mouseExited();
+		btnExit.mouseClicked();
 		btnExit.setOnAction(event -> Platform.exit());
-
-		VBox vbox = new VBox(35, btnStart, btnExit);
-		vbox.setTranslateX(240);
-		vbox.setTranslateY(450);
-		vbox.setAlignment(Pos.CENTER);
-		background.getChildren().add(vbox);
-
+		addButton(btnExit);
+	}
+	
+	public void createHowToPlaySubScene() {
+		howToPlaySubScene = new MySubScene();
+		mainBackground.getChildren().add(howToPlaySubScene);
+		
+		howToPlaySubScene.getPane().getChildren().add(createSubSceneBackButton());
+	}
+	
+	public MyButton createSubSceneBackButton() {
+		MyButton btnBack= new MyButton();
+		ImageView iv = new ImageView(new Image("file:src/p4_group_8_repo/BackButton2.png"));
+		iv.setFitHeight(40);
+		iv.setFitWidth(40);		
+		btnBack.setGraphic(iv);
+		btnBack.setStyle("-fx-background-color: transparent");	
+		btnBack.setLayoutX(380);
+		btnBack.setLayoutY(29);
+		btnBack.mouseEnteredForBackButton();
+		btnBack.mouseExitedForBackButton();
+		btnBack.mouseClicked();
+		btnBack.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent e) {
+				howToPlaySubScene.moveBackSubScene();
+			}
+		});
+		return btnBack;
+	}
+	
+	public void addTitle(){
+		mainBackground.getChildren().add(new Title(500,50,125));
 	}
 
 	public static void main(String args[]) {
