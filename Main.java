@@ -23,7 +23,7 @@ public class Main {
 	    background = new MyStage();
 	    
 
-		BackgroundImage froggerback = new BackgroundImage("file:src/p4_group_8_repo/iKogsKW.png");
+		MyBackgroundImage froggerback = new MyBackgroundImage("file:src/p4_group_8_repo/iKogsKW.png");
 	    
 		background.add(froggerback);
 		
