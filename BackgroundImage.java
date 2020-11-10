@@ -2,7 +2,7 @@ package p4_group_8_repo;
 
 import javafx.scene.image.Image;
 
-public class BackgroundImage extends Actor{
+public class MyBackgroundImage extends Actor{
 
 	@Override
 	public void act(long now) {
@@ -10,7 +10,7 @@ public class BackgroundImage extends Actor{
 		
 	}
 	
-	public BackgroundImage(String imageLink) {
+	public MyBackgroundImage(String imageLink) {
 		setImage(new Image(imageLink, 600, 650, false, true));
 		
 	}
