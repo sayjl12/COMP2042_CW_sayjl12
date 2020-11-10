@@ -23,7 +23,7 @@ public class MainMenu extends Application {
 		mainMenuButtons = new ArrayList<>();
 		MyStage background = new MyStage();
 		Scene scene = new Scene(background,600,650);
-		BackgroundImage bImage = new BackgroundImage("file:src/p4_group_8_repo/mainmenu.jpg");
+		MyBackgroundImage bImage = new MyBackgroundImage("file:src/p4_group_8_repo/mainmenu.jpg");
 		stage.setMaxWidth(614);
 		stage.setMaxHeight(687);
 		background.add(bImage);
