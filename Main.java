@@ -24,6 +24,7 @@ public class Main {
 	MySubScene HScoreSubScene;
 	List<MyButton> arrayOfButton;
 	Level level1,level2,level;
+	int abcd;
 	
 	public Main(int num) { 
 		background = new MyStage();
