@@ -8,7 +8,6 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
 public class MySubScene extends SubScene{
@@ -19,14 +18,51 @@ public class MySubScene extends SubScene{
 		super(new AnchorPane(),600,650);
 		prefWidth(600);
 		prefHeight(650);
-		
-		BackgroundImage image = new BackgroundImage(new Image(backgroundImage,470,450,false,true),
-				BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT,BackgroundPosition.DEFAULT,null);
-		AnchorPane root = (AnchorPane) this.getRoot();
-		root.setBackground(new Background(image));
-		
-		setLayoutX(-470);
-		setLayoutY(200);
+	}
+	
+	public MySubScene(int num) {
+		super(new AnchorPane(), 600, 650);
+		prefWidth(600);
+		prefHeight(650);
+
+		if (num == 1) {
+			BackgroundImage image = new BackgroundImage(new Image(backgroundImage, 470, 450, false, true),
+					BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
+			AnchorPane root = (AnchorPane) this.getRoot();
+			root.setBackground(new Background(image));
+
+			setLayoutX(-470);
+			setLayoutY(200);
+		}
+
+		if (num == 2) {
+			BackgroundImage image = new BackgroundImage(new Image(backgroundImage, 300, 450, false, true),
+					BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
+			AnchorPane root = (AnchorPane) this.getRoot();
+			root.setBackground(new Background(image));
+
+			setLayoutX(-384);
+			setLayoutY(150);
+		}
+
+		if (num == 3) {
+			BackgroundImage image = new BackgroundImage(new Image(backgroundImage, 470, 450, false, true),
+					BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
+			AnchorPane root = (AnchorPane) this.getRoot();
+			root.setBackground(new Background(image));
+
+			setLayoutX(-470);
+			setLayoutY(150);
+		}
+		if (num == 4) {
+			BackgroundImage image = new BackgroundImage(new Image(backgroundImage, 300, 200, false, true),
+					BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
+			AnchorPane root = (AnchorPane) this.getRoot();
+			root.setBackground(new Background(image));
+
+			setLayoutX(-384);
+			setLayoutY(220);
+		}
 	}
 	
 	public void moveSubScene() {
@@ -48,7 +84,5 @@ public class MySubScene extends SubScene{
 	public AnchorPane getPane() {
 		return (AnchorPane) this.getRoot();
 	}
-
-	
 
 }
