@@ -10,16 +10,16 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.util.Duration;
 
-public class MySubScene extends SubScene{
-	
+public class MySubScene extends SubScene {
+
 	private static final String backgroundImage = "file:src/p4_group_8_repo/GreenPanel.png";
-	
+
 	public MySubScene() {
-		super(new AnchorPane(),600,650);
+		super(new AnchorPane(), 600, 650);
 		prefWidth(600);
 		prefHeight(650);
 	}
-	
+
 	public MySubScene(int num) {
 		super(new AnchorPane(), 600, 650);
 		prefWidth(600);
@@ -64,7 +64,7 @@ public class MySubScene extends SubScene{
 			setLayoutY(220);
 		}
 	}
-	
+
 	public void moveSubScene() {
 		TranslateTransition tt = new TranslateTransition();
 		tt.setDuration(Duration.millis(50));
@@ -72,7 +72,7 @@ public class MySubScene extends SubScene{
 		tt.setByX(529);
 		tt.play();
 	}
-	
+
 	public void moveBackSubScene() {
 		TranslateTransition tt = new TranslateTransition();
 		tt.setDuration(Duration.millis(50));
@@ -80,7 +80,7 @@ public class MySubScene extends SubScene{
 		tt.setByX(-529);
 		tt.play();
 	}
-	
+
 	public AnchorPane getPane() {
 		return (AnchorPane) this.getRoot();
 	}

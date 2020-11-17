@@ -3,31 +3,31 @@ package p4_group_8_repo;
 public class Level {
 	MyStage stage;
 	int levelNumber;
-	
+
 	public Level(MyStage stage, int num) {
 		this.stage = stage;
 		setLevelNumber(num);
-		
-		if(levelNumber==1) {
+
+		if (levelNumber == 1) {
 			setLevel1();
 		}
-		if(levelNumber == 2) {
+		if (levelNumber == 2) {
 			setLevel2();
-		}		
-		if(levelNumber == 3) {
+		}
+		if (levelNumber == 3) {
 			setLevel3();
 		}
 	}
 	
 	private void setLevelNumber(int num) {
-		levelNumber = num;	
+		levelNumber = num;
 	}
-	
+
 	public int getLevelNumber() {
-		return levelNumber;	
+		return levelNumber;
 	}
 	
-	public void setLevel1(){
+	public void setLevel1() {
 		stage.add(new Log("file:src/p4_group_8_repo/log3.png", 125, 0, 130, 0.75));
 		stage.add(new Log("file:src/p4_group_8_repo/log3.png", 125, 220, 130, 0.75));
 		stage.add(new Log("file:src/p4_group_8_repo/log3.png", 125, 440, 130, 0.75));

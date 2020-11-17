@@ -2,19 +2,21 @@ package p4_group_8_repo;
 
 import javafx.scene.image.Image;
 
-public class Digit extends Actor{
+public class Digit extends Actor {
 	int dim;
 	Image im1;
+	String id;
+
 	@Override
 	public void act(long now) {
-		// TODO Auto-generated method stub		
+		// TODO Auto-generated method stub
+
 	}
-	
+
 	public Digit(int n, int dim, int x, int y) {
-		im1 = new Image("file:src/p4_group_8_repo/0"+n+".png", dim, dim, true, true);
+		im1 = new Image("file:src/p4_group_8_repo/0" + n + ".png", dim, dim, true, true);
 		setImage(im1);
 		setX(x);
 		setY(y);
 	}
-	
 }

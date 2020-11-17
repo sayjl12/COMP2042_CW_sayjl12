@@ -16,18 +16,18 @@ public class Main {
 	AnimationTimer timer;
 	MyStage background;
 	Animal animal;
-	boolean isHidden, nextLevel;	
-	MySubScene menuSubScene, howToPlaySubScene, HScoreSubScene,ProceedSubScene,NotProceedSubScene,HScoreSubSceneEnd;
+	boolean isHidden,nextLevel;
+	MySubScene menuSubScene, howToPlaySubScene, HScoreSubScene, ProceedSubScene, NotProceedSubScene,HScoreSubSceneEnd;
 	List<MyButton> arrayOfButton;
-	Level level1,level2,level;
+	Level level1, level2, level;
 	TextField tf;
 	ScoreManager sm;
-	
-	public Main(int num) { 
+
+	public Main(int num) {
 		background = new MyStage();
-	   	sm = new ScoreManager();
+		sm = new ScoreManager();
 		settingBackground();
-		settingLevel(num);		
+		settingLevel(num);
 		animal = new Animal("file:src/p4_group_8_repo/froggerUp.png");
 		background.add(animal);
 		background.add(new Digit(0, 30, 550, 25));
@@ -35,30 +35,30 @@ public class Main {
 		createMenuSubScene();
 		createHowToPlaySubScene();
 		createNotProceedSubScene();
-		createHScoreSubScene();
+		createHScoreSubScene();	
 	}
-	
-	public MyStage getbackground() {
+
+	public MyStage getBackground() {
 		return background;
 	}
-	
+
 	public void addButton(MyButton button) {
 		button.setLayoutX(3);
 		button.setLayoutY(8);
 		background.getChildren().add(button);
 	}
-	
+
 	public void createPauseButton() {
 		isHidden = true;
-		MyButton btnPause= new MyButton();
+		MyButton btnPause = new MyButton();
 		ImageView iv = new ImageView(new Image("file:src/p4_group_8_repo/PauseButton.png"));
 		ImageView iv2 = new ImageView(new Image("file:src/p4_group_8_repo/PlayButton.png"));
 		iv.setFitHeight(40);
-		iv.setFitWidth(40);	
+		iv.setFitWidth(40);
 		iv2.setFitHeight(40);
-		iv2.setFitWidth(40);	
+		iv2.setFitWidth(40);
 		btnPause.setGraphic(iv);
-		btnPause.setStyle("-fx-background-color: transparent");	
+		btnPause.setStyle("-fx-background-color: transparent");
 		btnPause.mouseEntered();
 		btnPause.mouseExited();
 		btnPause.mouseClicked();
@@ -70,28 +70,28 @@ public class Main {
 					menuSubScene.moveSubScene();
 					btnPause.setGraphic(iv2);
 					isHidden = false;
-				}else {
+				} else {
 					background.start();
 					menuSubScene.moveBackSubScene();
 					btnPause.setGraphic(iv);
 					isHidden = true;
 				}
-				
+
 			}
 		});
 		addButton(btnPause);
 	}
-	
+
 	public void createMenuSubScene() {
 		menuSubScene = new MySubScene(2);
 		background.getChildren().add(menuSubScene);
 		VBox vbox = new VBox(20);
 		vbox.setTranslateX(54);
 		vbox.setTranslateY(100);
-		vbox.getChildren().addAll(createHowToPlayButton(),createHScoreButton(),createExitButton());
+		vbox.getChildren().addAll(createHowToPlayButton(), createHScoreButton(), createExitButton());
 		menuSubScene.getPane().getChildren().add(vbox);
 	}
-	
+
 	public MyButton createExitButton() {
 		MyButton btnExit = new MyButton("EXIT", "Berlin Sans FB", 25, "#8FBC8F");
 		btnExit.mouseEntered();
@@ -99,9 +99,9 @@ public class Main {
 		btnExit.mouseClicked();
 		btnExit.setOnAction(event -> Platform.exit());
 		return btnExit;
-		
+
 	}
-	
+
 	public void createHowToPlaySubScene() {
 		howToPlaySubScene = new MySubScene(3);
 		background.getChildren().add(howToPlaySubScene);
@@ -168,48 +168,48 @@ public class Main {
 			public void handle(ActionEvent e) {
 				menuSubScene.moveBackSubScene();
 				howToPlaySubScene.moveSubScene();
-				
+
 			}
 		});
 		return btnHowToPlay;
 	}
-	
+
 	public MyButton createSubSceneBackButton(int num) {
-		MyButton btnBack= new MyButton();
+		MyButton btnBack = new MyButton();
 		ImageView iv = new ImageView(new Image("file:src/p4_group_8_repo/BackButton2.png"));
 		iv.setFitHeight(40);
-		iv.setFitWidth(40);		
+		iv.setFitWidth(40);
 		btnBack.setGraphic(iv);
-		btnBack.setStyle("-fx-background-color: transparent");	
+		btnBack.setStyle("-fx-background-color: transparent");
 		btnBack.setLayoutX(380);
 		btnBack.setLayoutY(29);
 		btnBack.mouseEntered();
 		btnBack.mouseExited();
 		btnBack.mouseClicked();
-		if (num==1) {
+		if (num == 1) {
 			btnBack.setOnAction(new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent e) {
 					howToPlaySubScene.moveBackSubScene();
 					menuSubScene.moveSubScene();
 				}
-				
+
 			});
 		}
-		if (num==2) {
+		if (num == 2) {
 			btnBack.setOnAction(new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent e) {
 					HScoreSubScene.moveBackSubScene();
 					menuSubScene.moveSubScene();
 				}
-				
+
 			});
 		}
-		
+
 		return btnBack;
 	}
-	
+
 	public MyButton createHScoreButton() {
 		MyButton btnHScore = new MyButton("SCORE", "Berlin Sans FB", 25, "#8FBC8F");
 		btnHScore.mouseEntered();
@@ -220,16 +220,16 @@ public class Main {
 			public void handle(ActionEvent e) {
 				menuSubScene.moveBackSubScene();
 				HScoreSubScene.moveSubScene();
-				
+
 			}
 		});
 		return btnHScore;
 	}
-	
+
 	public void createHScoreSubScene() {
 		HScoreSubScene = new MySubScene(3);
 		background.getChildren().add(HScoreSubScene);
-		
+
 		HScoreSubScene.getPane().getChildren().add(createSubSceneBackButton(2));
 		HScoreSubScene.getPane().getChildren().add(sm.getHighscoreString());
 	}
@@ -357,56 +357,56 @@ public class Main {
 			}
 		});
 		return btnNotProceed;
-	}
-	
+	}	
+
 	public void start() {
-		background.playMusic();
-    		createTimer();
-        	timer.start();
-    	}
-	
-	public void createTimer() {
-        timer = new AnimationTimer() {
-            @Override
-            public void handle(long now) {
-            	if (animal.changeScore()) {
-            		setNumber(animal.getPoints());
-            	}
-            	if (animal.getStop()) {
-            		//background.stopMusic();
-			nextLevel = false;
-			stop();
-			background.stop();
-			ProceedSubScene.moveSubScene();
-			int currentLevelNumber = level.getLevelNumber();
-			if (currentLevelNumber == 3) {
-				NotProceedSubScene.moveSubScene();
-			}
-					
-            	}
-            }
-        };
-    }
-	
-	public void settingLevel(int levelNumber) {
-		switch(levelNumber) {
-		  case 1:
-		    level = new Level(background,1);
-		    break;
-		  case 2:
-			level = new Level(background,2);
-		        break;
-		  case 3:
-			level = new Level(background,3);
-			break;	
-		}
-		
+		// background.playMusic();
+		createTimer();
+		timer.start();
 	}
-	
+
+	public void createTimer() {
+		timer = new AnimationTimer() {
+			@Override
+			public void handle(long now) {
+				if (animal.changeScore()) {
+					setNumber(animal.getPoints());
+				}
+				if (animal.getStop()) {					
+					// background.stopMusic();
+					nextLevel = false;
+					stop();			
+					background.stop();
+					ProceedSubScene.moveSubScene();					
+					int currentLevelNumber = level.getLevelNumber();
+					if (currentLevelNumber == 3) {
+						NotProceedSubScene.moveSubScene();
+					}
+
+				}
+			}
+		};
+	}
+
+	public void settingLevel(int levelNumber) {
+		switch (levelNumber) {
+		case 1:
+			level = new Level(background, 1);
+			break;
+		case 2:
+			level = new Level(background, 2);
+			break;
+		case 3:
+			level = new Level(background, 3);
+			break;
+		}
+
+	}
+
 	public void settingBackground() {
 		MyBackgroundImage froggerback = new MyBackgroundImage("file:src/p4_group_8_repo/iKogsKW.png");
 		background.add(froggerback);
-		
+
 		background.add(new End(15, 77));
 		background.add(new End(144, 77));
 		background.add(new End(272, 77));
@@ -415,22 +415,22 @@ public class Main {
 		
 		background.start();
 		start();
-		
-		createPauseButton();
+
+		createPauseButton();		
 	}
-	
-    public void stop() {
-        timer.stop();
-    }
-    
-    public void setNumber(int n) {
-    	int shift = 0;
-    	while (n > 0) {
-    		  int d = n / 10;
-    		  int k = n - d * 10;
-    		  n = d;
-    		  background.add(new Digit(k, 30, 560 - shift, 25));
-    		  shift+=22;
-    		}
-    }
+
+	public void stop() {
+		timer.stop();
+	}
+
+	public void setNumber(int n) {
+		int shift = 0;
+		while (n > 0) {
+			int d = n / 10;
+			int k = n - d * 10;
+			n = d;
+			background.add(new Digit(k, 30, 560 - shift, 25));
+			shift += 22;
+		}
+	}
 }

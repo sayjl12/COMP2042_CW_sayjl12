@@ -7,20 +7,20 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.media.AudioClip;
 import javafx.scene.text.Font;
 
-public class MyButton extends Button{
-	
+public class MyButton extends Button {
+
 	DropShadow shadow = new DropShadow();
-	
+
 	public MyButton() {
 	}
 
-	public MyButton(String text, String font, int fontSize,String backgroundColor) {
+	public MyButton(String text, String font, int fontSize, String backgroundColor) {
 		setPrefWidth(200);
 		setText(text);
 		setFont(Font.font(font, fontSize));
-		setStyle("-fx-background-color:"+backgroundColor);
+		setStyle("-fx-background-color:" + backgroundColor);
 	}
-	
+
 	public void mouseEntered() {
 		setOnMouseEntered(new EventHandler<MouseEvent>() {
 			@Override
@@ -34,7 +34,7 @@ public class MyButton extends Button{
 			}
 		});
 	}
-	
+
 	public void mouseExited() {
 		setOnMouseExited(new EventHandler<MouseEvent>() {
 			@Override
@@ -45,7 +45,7 @@ public class MyButton extends Button{
 			}
 		});
 	}
-	
+
 	public void mouseClicked() {
 		setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
