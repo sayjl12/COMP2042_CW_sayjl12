@@ -19,40 +19,18 @@ public class Main {
 	MyStage background;
 	Animal animal;
 	boolean isHidden;	
-	MySubScene menuSubScene;
-	MySubScene howToPlaySubScene;
-	MySubScene HScoreSubScene;
+	MySubScene menuSubScene, howToPlaySubScene, HScoreSubScene;
 	List<MyButton> arrayOfButton;
 	Level level1,level2,level;
-	int abcd;
 	
 	public Main(int num) { 
 		background = new MyStage();
-	    
-		MyBackgroundImage froggerback = new MyBackgroundImage("file:src/p4_group_8_repo/iKogsKW.png");
-	    
-		background.add(froggerback);
-		
+	   	
+		settingBackground();
 		settingLevel(num);
-		
-		background.add(new End(15, 77));
-		background.add(new End(144, 77));
-		background.add(new End(272, 77));
-		background.add(new End(399, 77));
-		background.add(new End(527, 77));
 		
 		animal = new Animal("file:src/p4_group_8_repo/froggerUp.png");
 		background.add(animal);
-		
-		background.add(new Digit(0, 30, 550, 25));
-		
-		background.start();
-		start();  
-		
-		createPauseButton();
-		createMenuSubScene();
-		createHowToPlaySubScene();
-		createHScoreSubScene();
 	}
 	
 	public MyStage getbackground() {
@@ -215,35 +193,14 @@ public class Main {
 					int currentLevelNumber = level.getLevelNumber();
 					if (nextLevel == true) {
 						background.getChildren().clear();
-					
-						
+		
 						int nextLevelNumber = currentLevelNumber+1;
-						MyBackgroundImage froggerback = new MyBackgroundImage("file:src/p4_group_8_repo/iKogsKW.png");
 						
-						background.add(froggerback);
-						
+						settingBackground();
 						settingLevel(nextLevelNumber);
-						
-						background.add(new End(15, 77));
-						background.add(new End(144, 77));
-						background.add(new End(272, 77));
-						background.add(new End(399, 77));
-						background.add(new End(527, 77));
-
+					
 						animal = new Animal("file:src/p4_group_8_repo/froggerUp.png");
 						background.add(animal);
-						
-						
-						background.add(new Digit(0,30,550,25));
-						background.start();
-						start();
-						
-						createPauseButton();
-						createMenuSubScene();
-						createHowToPlaySubScene();
-						createHScoreSubScene();
-						
-						
 					}
 					if (currentLevelNumber == 3){
 						Alert alert = new Alert(AlertType.INFORMATION);
@@ -267,13 +224,33 @@ public class Main {
 		    level = new Level(background,1);
 		    break;
 		  case 2:
-		    level = new Level(background,2);
-		    break;
+			level = new Level(background,2);
+		        break;
 		  case 3:
-			    level = new Level(background,3);
-			    break;	
+			level = new Level(background,3);
+			break;	
 		}
 		
+	}
+	public void settingBackground() {
+		MyBackgroundImage froggerback = new MyBackgroundImage("file:src/p4_group_8_repo/iKogsKW.png");
+		background.add(froggerback);
+		background.add(new End(15, 77));
+		background.add(new End(144, 77));
+		background.add(new End(272, 77));
+		background.add(new End(399, 77));
+		background.add(new End(527, 77));
+
+		animal = new Animal("file:src/p4_group_8_repo/froggerUp.png");
+		background.add(animal);
+
+		background.add(new Digit(0, 30, 550, 25));
+		background.start();
+		start();
+		createPauseButton();
+		createMenuSubScene();
+		createHowToPlaySubScene();
+		createHScoreSubScene();
 	}
 	
     public void stop() {
