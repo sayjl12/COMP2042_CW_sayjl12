@@ -1,13 +1,10 @@
 package p4_group_8_repo;
 
 import java.util.ArrayList;
-
 import javafx.event.EventHandler;
-
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-
 
 public class Animal extends Actor {
 	Image imgW1;
@@ -32,6 +29,7 @@ public class Animal extends Actor {
 	int carD = 0;
 	double w = 800;
 	ArrayList<End> inter = new ArrayList<End>();
+	
 	public Animal(String imageLink) {
 		setImage(new Image(imageLink, imgSize, imgSize, true, true));
 		setX(278);
@@ -48,84 +46,73 @@ public class Animal extends Actor {
 			public void handle(KeyEvent event){
 				if (noMove) {
 					
-				}
-				else {
-				if (second) {
-					if (event.getCode() == KeyCode.W) {	  
-		                move(0, -movement);
-		                changeScore = false;
-		                setImage(imgW1);
-		                second = false;
-		            }
-		            else if (event.getCode() == KeyCode.A) {	            	
-		            	 move(-movementX, 0);
-		            	 setImage(imgA1);
-		            	 second = false;
-		            }
-		            else if (event.getCode() == KeyCode.S) {	            	
-		            	 move(0, movement);
-		            	 setImage(imgS1);
-		            	 second = false;
-		            }
-		            else if (event.getCode() == KeyCode.D) {	            	
-		            	 move(movementX, 0);
-		            	 setImage(imgD1);
-		            	 second = false;
-		            }
-				}
-				else if (event.getCode() == KeyCode.W) {	            	
-	                move(0, -movement);
-	                setImage(imgW2);
-	                second = true;
-	            }
-	            else if (event.getCode() == KeyCode.A) {	            	
-	            	 move(-movementX, 0);
-	            	 setImage(imgA2);
-	            	 second = true;
-	            }
-	            else if (event.getCode() == KeyCode.S) {	            	
-	            	 move(0, movement);
-	            	 setImage(imgS2);
-	            	 second = true;
-	            }
-	            else if (event.getCode() == KeyCode.D) {	            	
-	            	 move(movementX, 0);
-	            	 setImage(imgD2);
-	            	 second = true;
-	            }
-	        }
+				}else {
+					if (second) {
+						if (event.getCode() == KeyCode.W) {
+							move(0, -movement);
+		                			changeScore = false;
+		                			setImage(imgW1);
+		                			second = false;
+		            			}else if (event.getCode() == KeyCode.A) {	            	
+		            				 move(-movementX, 0);
+		            	 			setImage(imgA1);
+		            				 second = false;
+		            			}else if (event.getCode() == KeyCode.S) {	            	
+		            	 			move(0, movement);
+		            	 			setImage(imgS1);
+		            	 			second = false;
+		            			}else if (event.getCode() == KeyCode.D) {	            	
+		            				 move(movementX, 0);
+		            	 			setImage(imgD1);
+		            	 			second = false;
+		            			}
+					}else if (event.getCode() == KeyCode.W) {
+					 	move(0, -movement);
+	                			setImage(imgW2);
+	                			second = true;
+						if (getY() < w){
+							changeScore = true;
+							w = getY();
+							points += 10;
+						}
+	            			}else if (event.getCode() == KeyCode.A) {	            	
+	            	 			move(-movementX, 0);
+	            	 			setImage(imgA2);
+	            	 			second = true;
+	            			}else if (event.getCode() == KeyCode.S) {	            	
+	            				move(0, movement);
+	            	 			setImage(imgS2);
+	            	 			second = true;
+	            			}else if (event.getCode() == KeyCode.D) {	            	
+	            				move(movementX, 0);
+	            	 			setImage(imgD2);
+	            	 			second = true;
+	            			}
+	            		}
 			}
 		});	
 		setOnKeyReleased(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event) {
-				if (noMove) {}
-				else {
-				if (event.getCode() == KeyCode.W) {	  
-					if (getY() < w) {
-						changeScore = true;
-						w = getY();
-						points+=10;
-					}
-	                move(0, -movement);
-	                setImage(imgW1);
-	                second = false;
-	            }
-	            else if (event.getCode() == KeyCode.A) {	            	
-	            	 move(-movementX, 0);
-	            	 setImage(imgA1);
-	            	 second = false;
-	            }
-	            else if (event.getCode() == KeyCode.S) {	            	
-	            	 move(0, movement);
-	            	 setImage(imgS1);
-	            	 second = false;
-	            }
-	            else if (event.getCode() == KeyCode.D) {	            	
-	            	 move(movementX, 0);
-	            	 setImage(imgD1);
-	            	 second = false;
-	            }
-	        }
+				if (noMove) {
+				} else {
+					if (event.getCode() == KeyCode.W) {	  
+	                			move(0, -movement);
+	                			setImage(imgW1);
+	                			second = false;
+	            			}else if (event.getCode() == KeyCode.A) {	            	
+	            	 			move(-movementX, 0);
+	            	 			setImage(imgA1);
+	            	 			second = false;
+	            			}else if (event.getCode() == KeyCode.S) {	            	
+	            	 			move(0, movement);
+	            	 			setImage(imgS1);
+	            	 			second = false;
+	           	 		} else if (event.getCode() == KeyCode.D) {	            	
+	            	 			move(movementX, 0);
+	            	 			setImage(imgD1);
+	            	 			second = false;
+	            			}
+				}
 			}
 			
 		});
@@ -134,12 +121,28 @@ public class Animal extends Actor {
 	@Override
 	public void act(long now) {
 		int bounds = 0;
-		if (getY()<0 || getY()>734) {
+		if (getY()<0 || getY()>650) {
 			setX(278);
 			setY(571.25);
 		}
 		if (getX()<0) {
-			move(movement*2, 0);
+			move(movementX, 0);
+		}
+		if (getY() < 110 && (getX()>45 && getX()<130)){
+			changeScore = false;
+			move(0,movement);
+		}
+		if (getY() < 110 && (getX()>174 && getX()<258)){
+			changeScore = false;
+			move(0,movement);
+		}
+		if (getY() < 110 && (getX()>302 && getX()<382)){
+			changeScore = false;
+			move(0,movement);
+		}
+		if (getY() < 110 && (getX()>429 && getX()<513)){
+			changeScore = false;
+			move(0,movement);
 		}
 		if (carDeath) {
 			noMove = true;
@@ -162,10 +165,6 @@ public class Animal extends Actor {
 				carD = 0;
 				setImage(new Image("file:src/p4_group_8_repo/froggerUp.png", imgSize, imgSize, true, true));
 				noMove = false;
-				if (points>50) {
-					points-=50;
-					changeScore = true;
-				}
 			}
 			
 		}
@@ -193,59 +192,54 @@ public class Animal extends Actor {
 				carD = 0;
 				setImage(new Image("file:src/p4_group_8_repo/froggerUp.png", imgSize, imgSize, true, true));
 				noMove = false;
-				if (points>50) {
-					points-=50;
-					changeScore = true;
-				}
-			}
-			
+			}			
 		}
 		
-		if (getX()>600) {
-			move(-movement*2, 0);
+		if (getX()>576) {
+			move(-movementX, 0);
 		}
 		if (getIntersectingObjects(Obstacle.class).size() >= 1) {
 			carDeath = true;
 		}
-		if (getX() == 240 && getY() == 82) {
+		/*if (getX() == 240 && getY() == 82) {
+			System.out.println("IN");
 			stop = true;
-		}
+		}*/
 		if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) {
 			if(getIntersectingObjects(Log.class).get(0).getLeft())
 				move(-2,0);
 			else
 				move (.75,0);
-		}
-		else if (getIntersectingObjects(Turtle.class).size() >= 1 && !noMove) {
+		}else if (getIntersectingObjects(Turtle.class).size() >= 1 && !noMove) {
 			move(-1,0);
-		}
-		else if (getIntersectingObjects(WetTurtle.class).size() >= 1) {
+		}else if (getIntersectingObjects(WetTurtle.class).size() >= 1) {
 			if (getIntersectingObjects(WetTurtle.class).get(0).isSunk()) {
 				waterDeath = true;
 			} else {
 				move(-1,0);
 			}
-		}
-		else if (getIntersectingObjects(End.class).size() >= 1) {
+		}else if (getIntersectingObjects(End.class).size() >= 1) {
 			inter = (ArrayList<End>) getIntersectingObjects(End.class);
 			if (getIntersectingObjects(End.class).get(0).isActivated()) {
-				end--;
-				points-=50;
-			}
-			points+=50;
-			changeScore = true;
-			w=800;
-			getIntersectingObjects(End.class).get(0).setEnd();
-			end++;
-			setX(278);
-			setY(571.25);
-		}
-		else if (getY()<413){
+				move(0,movement+1);
+			}else{
+				points+=50;
+				points -= 10;
+				changeScore = true;
+				w=800;
+				getIntersectingObjects(End.class).get(0).setEnd();
+				end++;
+				setX(278);
+				setY(571.25);
+			}	
+		}else if (getY()<305){
 			waterDeath = true;
-			//setX(300);
-			//setY(679.8+movement);
+		}
+		if (getStop()){
+			points += 1000;
 		}
 	}
+	
 	public boolean getStop() {
 		return end==5;
 	}
@@ -254,6 +248,9 @@ public class Animal extends Actor {
 		return points;
 	}
 	
+	public void setPoints(int score){
+		points = score;
+	}
 	public boolean changeScore() {
 		if (changeScore) {
 			changeScore = false;
