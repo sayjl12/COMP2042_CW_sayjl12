@@ -2,9 +2,7 @@ package p4_group_8_repo;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.input.InputEvent;
-
 import java.util.ArrayList;
-
 
 public abstract class Actor extends ImageView{
 
