@@ -29,20 +29,6 @@ public class MyButton extends Button{
 				ac.play();
 				setScaleX(1.1);
 				setScaleY(1.1);
-				setStyle("-fx-background-color: #6aa66a");
-
-			}
-		});
-	}
-	
-	public void mouseEnteredForBackButton() {
-		setOnMouseEntered(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent e) {
-				AudioClip ac = new AudioClip("file:src/p4_group_8_repo/steven_hammon_multimedia_rollover_tone.mp3");
-				ac.play();
-				setScaleX(1.1);
-				setScaleY(1.1);
 				setEffect(shadow);
 
 			}
@@ -50,17 +36,6 @@ public class MyButton extends Button{
 	}
 	
 	public void mouseExited() {
-		setOnMouseExited(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent e) {
-				setScaleX(1);
-				setScaleY(1);
-				setStyle("-fx-background-color:#8FBC8F");
-			}
-		});
-	}
-	
-	public void mouseExitedForBackButton() {
 		setOnMouseExited(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent e) {
