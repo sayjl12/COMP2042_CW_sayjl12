@@ -29,6 +29,7 @@ public class Animal extends Actor {
 	int carD = 0;
 	double w = 800;
 	ArrayList<End> inter = new ArrayList<End>();
+	int numOfLives = 3;
 
 	public Animal(String imageLink) {
 		setImage(new Image(imageLink, imgSize, imgSize, true, true));
@@ -159,6 +160,7 @@ public class Animal extends Actor {
 				setImage(new Image("file:src/p4_group_8_repo/cardeath3.png", imgSize, imgSize, true, true));
 			}
 			if (carD == 4) {
+				numOfLives--;
 				setX(278);
 				setY(571.25);
 				carDeath = false;
@@ -186,6 +188,7 @@ public class Animal extends Actor {
 				setImage(new Image("file:src/p4_group_8_repo/waterdeath4.png", imgSize, imgSize, true, true));
 			}
 			if (carD == 5) {
+				numOfLives--;
 				setX(278);
 				setY(571.25);
 				waterDeath = false;
@@ -246,6 +249,10 @@ public class Animal extends Actor {
 
 	public int getPoints() {
 		return points;
+	}
+	
+	public int getNumOfLives() {
+		return numOfLives;
 	}
 	
 	public void setPoints(int score) {
