@@ -33,7 +33,7 @@ public class MainMenu extends Application {
 		stage.setScene(scene);
 		stage.show();
 		// background.playMainMenuMusic();
-
+		
 		addTitle();
 		createStartButton();
 		createHowToPlayButton();
