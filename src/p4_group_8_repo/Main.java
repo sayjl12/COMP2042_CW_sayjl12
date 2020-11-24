@@ -1,10 +1,17 @@
 package p4_group_8_repo;
 
+import javafx.util.Duration;
+import java.util.Collection;
 import java.util.List;
+
+import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
+import javafx.animation.RotateTransition;
+import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -22,20 +29,25 @@ public class Main {
 	Level level1, level2, level;
 	TextField tf;
 	ScoreManager sm;
+	Lives froglives;
 
 	public Main(int num) {
 		background = new MyStage();
 		sm = new ScoreManager();
+		
+		animal = new Animal("file:src/p4_group_8_repo/froggerUp.png");
+		
+		background.add(new Digit(0, 30, 550, 25));
 		settingBackground();
 		settingLevel(num);
-		animal = new Animal("file:src/p4_group_8_repo/froggerUp.png");
 		background.add(animal);
-		background.add(new Digit(0, 30, 550, 25));
 		createProceedSubScene();
 		createMenuSubScene();
 		createHowToPlaySubScene();
 		createNotProceedSubScene();
 		createHScoreSubScene();	
+		
+		
 	}
 
 	public MyStage getBackground() {
@@ -353,6 +365,16 @@ public class Main {
 			public void handle(ActionEvent e) {
 				ProceedSubScene.moveBackSubScene();
 				NotProceedSubScene.moveSubScene();
+				ImageView iv = new ImageView(new Image("file:src/p4_group_8_repo/LevelCleared2.png",150,150,true,true));
+				iv.setX(230);
+				iv.setY(150);
+				ScaleTransition st = new ScaleTransition(Duration.millis(800),iv);
+		        st.setByX(0.8);
+		        st.setByY(0.9);
+		        st.setCycleCount(Animation.INDEFINITE);
+		        st.setAutoReverse(true);
+		        st.play();
+				background.getChildren().add(iv);
 
 			}
 		});
@@ -369,6 +391,31 @@ public class Main {
 		timer = new AnimationTimer() {
 			@Override
 			public void handle(long now) {
+				if(animal.getNumOfLives() == 2) {
+					froglives.removeLives();
+					addFrogLives(2);
+				}
+				if(animal.getNumOfLives() == 1) {
+					froglives.removeLives();
+					addFrogLives(1);
+				}
+				if(animal.getNumOfLives() == 0) {
+					froglives.removeLives();
+					stop();
+					background.stop();
+					ImageView iv = new ImageView(new Image("file:src/p4_group_8_repo/GameOver1.png",150,150,true,true));
+					iv.setX(220);
+					iv.setY(60);
+					background.getChildren().add(iv);
+					ScaleTransition st = new ScaleTransition(Duration.millis(800),iv);
+			        st.setByX(0.8);
+			        st.setByY(0.9);
+			        st.setCycleCount(Animation.INDEFINITE);
+			        st.setAutoReverse(true);
+			        st.play();
+			        NotProceedSubScene.moveSubScene();
+					
+				}
 				if (animal.changeScore()) {
 					setNumber(animal.getPoints());
 				}
@@ -416,7 +463,13 @@ public class Main {
 		background.start();
 		start();
 
-		createPauseButton();		
+		createPauseButton();
+		addFrogLives(3);
+	}
+	
+	public void addFrogLives(int x) {
+		froglives = new Lives(x);
+		background.getChildren().add(froglives);
 	}
 
 	public void stop() {
