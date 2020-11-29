@@ -32,6 +32,7 @@ public abstract class Actor extends ImageView {
 		}
 		return someArray;
 	}
+	
 
 	public void manageInput(InputEvent e) {
 
