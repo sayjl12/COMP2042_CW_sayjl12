@@ -32,7 +32,7 @@ public class MainMenu extends Application {
 		stage.setTitle("Frogger");
 		stage.setScene(scene);
 		stage.show();
-		// background.playMainMenuMusic();
+		//background.playMainMenuMusic();
 		
 		addTitle();
 		createStartButton();
@@ -62,7 +62,7 @@ public class MainMenu extends Application {
 			public void handle(ActionEvent e) {
 				Main maingame = new Main(1);
 				mainBackground.getScene().setRoot(maingame.getBackground());
-				// mainBackground.stopMusic();
+				//mainBackground.stopMusic();
 			}
 		});
 		addButton(btnStart);
