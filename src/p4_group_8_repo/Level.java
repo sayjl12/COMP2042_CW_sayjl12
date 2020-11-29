@@ -10,7 +10,7 @@ public class Level {
 		
 		switch (levelNumber) {
 		case 1:
-			setLevel1();
+			setLevel10();
 			break;
 		case 2:
 			setLevel2();
@@ -178,6 +178,8 @@ public class Level {
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1right.png", 300, 370, 2, 45, 45));
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1right.png", 570, 370, 2, 45, 45));
 		
+		stage.add(new Snake(599,335));
+		
 		stage.add(new WetTurtle(2,600, 290, -1, 85, 85));
 		stage.add(new WetTurtle(2,400, 290, -1, 85, 85));
 		stage.add(new WetTurtle(2,150, 290, -1, 85, 85));
@@ -220,6 +222,8 @@ public class Level {
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1right.png", 300, 370, 2, 45, 45));
 		stage.add(new Obstacle("file:src/p4_group_8_repo/scarright.png", 100, 370, 2, 42, 42));
 		
+		stage.add(new Snake(210,335));
+		
 		stage.add(new Turtle(3, 350, 290, -1, 130, 130));
 		stage.add(new Turtle(3, 0, 290, -1, 130, 130));
 		
@@ -255,6 +259,8 @@ public class Level {
 		
 		stage.add(new Obstacle("file:src/p4_group_8_repo/struckright.png", 500, 370, 3, 40, 40));
 		stage.add(new Obstacle("file:src/p4_group_8_repo/struckright.png", 250, 370, 3, 40, 40));
+		
+		stage.add(new Snake(300,335));
 		
 		stage.add(new Turtle(3, 590, 290, -1, 130, 130));
 		stage.add(new WetTurtle(2,280, 290, -1, 85, 85));
@@ -300,6 +306,9 @@ public class Level {
 		stage.add(new Obstacle("file:src/p4_group_8_repo/scarleft.png", 500, 370, -2, 40, 40));
 		stage.add(new Obstacle("file:src/p4_group_8_repo/scarleft.png", 100, 370, -2, 40, 40));
 		
+		stage.add(new Snake(100,335));
+		stage.add(new Snake(599,335));
+		
 		stage.add(new WetTurtle(2,600, 290, -1, 85, 85));
 		stage.add(new WetTurtle(3,400, 290, -1,130, 130));
 		stage.add(new Turtle(3,150, 290, -1, 130, 130));
@@ -322,6 +331,8 @@ public class Level {
 	}
 	
 	public void setLevel8() {
+		stage.add(new Snake(599,580));
+		
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1right.png", 540, 532, 2, 45, 45));
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1right.png", 450, 532, 2, 45, 45));
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1right.png", 300, 532, 2, 45, 45));
@@ -345,6 +356,8 @@ public class Level {
 		stage.add(new Obstacle("file:src/p4_group_8_repo/truck1Right.png", 300, 370, 2, 120, 35));
 		stage.add(new Obstacle("file:src/p4_group_8_repo/truck1Right.png", 600, 370, 2, 120, 35));
 		
+		stage.add(new Snake(100,335));
+		
 		stage.add(new Turtle(3, 500, 290, -1, 130, 130));
 		stage.add(new Turtle(3, 300, 290, -1, 130, 130));
 		stage.add(new WetTurtle(3,700, 290, -1, 130, 130));
@@ -366,6 +379,8 @@ public class Level {
 	}
 	
 	public void setLevel9() {
+		stage.add(new Snake(610,580));
+		
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1Left.png", 500, 532, -2, 45, 45));
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1Left.png", 0, 532, -2, 45, 45));
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1Left.png", 300, 532, -2, 45, 45));
@@ -391,6 +406,8 @@ public class Level {
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1Left.png", 260, 450, -2, 45, 45));
 		stage.add(new Obstacle("file:src/p4_group_8_repo/scarleft.png", 400, 450, -2, 40, 40));
 		
+		stage.add(new Snake(650,335));
+		
 		stage.add(new Turtle(3, 500, 290, -1, 130, 130));
 		stage.add(new Turtle(3, 300, 290, -1, 130, 130));
 		stage.add(new WetTurtle(3,700, 290, -1, 130, 130));
@@ -412,6 +429,8 @@ public class Level {
 	}
 	
 	public void setLevel10() {
+		stage.add(new Snake(680,580));
+		
 		stage.add(new Obstacle("file:src/p4_group_8_repo/struckright.png", 590, 532, 2, 40, 40));
 		stage.add(new Obstacle("file:src/p4_group_8_repo/struckright.png", 500, 532, 2, 40, 40));
 		stage.add(new Obstacle("file:src/p4_group_8_repo/struckright.png", 300, 532, 2, 40, 40));
@@ -437,6 +456,9 @@ public class Level {
 		stage.add(new Obstacle("file:src/p4_group_8_repo/truck1Right.png", 0, 370, 3, 120, 35));
 		stage.add(new Obstacle("file:src/p4_group_8_repo/truck1Right.png", 300, 370, 3, 120, 35));
 		stage.add(new Obstacle("file:src/p4_group_8_repo/truck1Right.png", 600, 370, 3, 120, 35));
+		
+		stage.add(new Snake(640,335));
+		stage.add(new Snake(250,335));
 		
 		stage.add(new Turtle(3, 500, 290, -1, 130, 130));
 		stage.add(new Turtle(3, 300, 290, -1, 130, 130));
