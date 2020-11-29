@@ -37,16 +37,16 @@ public class Main {
 		
 		animal = new Animal("file:src/p4_group_8_repo/froggerUp.png");
 		
-		background.add(new Digit(0, 30, 550, 25));
+		
 		settingBackground();
 		settingLevel(num);
+		background.add(new Digit(0, 30, 550, 25));
 		background.add(animal);
 		createProceedSubScene();
 		createMenuSubScene();
 		createHowToPlaySubScene();
 		createNotProceedSubScene();
 		createHScoreSubScene();	
-		
 		
 	}
 
@@ -294,7 +294,7 @@ public class Main {
 				//System.out.println(score);
 				//System.out.println(name);
 				//stringscore  = sm.getHighscoreString();
-				System.out.print(sm.getHighscoreString());
+				//System.out.print(sm.getHighscoreString());
 				//System.out.print(stringscore);
 				createHScoreSubSceneEnd();
 				HScoreSubSceneEnd.moveSubScene();
@@ -382,7 +382,7 @@ public class Main {
 	}	
 
 	public void start() {
-		// background.playMusic();
+		//background.playMusic();
 		createTimer();
 		timer.start();
 	}
@@ -391,13 +391,9 @@ public class Main {
 		timer = new AnimationTimer() {
 			@Override
 			public void handle(long now) {
-				if(animal.getNumOfLives() == 2) {
-					froglives.removeLives();
-					addFrogLives(2);
-				}
-				if(animal.getNumOfLives() == 1) {
-					froglives.removeLives();
-					addFrogLives(1);
+				
+				if(animal.changeLives()) {
+					setFrogLives(animal.getNumOfLives());
 				}
 				if(animal.getNumOfLives() == 0) {
 					froglives.removeLives();
@@ -426,13 +422,29 @@ public class Main {
 					background.stop();
 					ProceedSubScene.moveSubScene();					
 					int currentLevelNumber = level.getLevelNumber();
-					if (currentLevelNumber == 3) {
+					if (currentLevelNumber == 10) {
+						ImageView iv = new ImageView(new Image("file:src/p4_group_8_repo/LevelCleared3.png",200,200,true,true));
+						iv.setX(200);
+						iv.setY(150);
+						ScaleTransition st = new ScaleTransition(Duration.millis(800),iv);
+				        st.setByX(0.8);
+				        st.setByY(0.9);
+				        st.setCycleCount(Animation.INDEFINITE);
+				        st.setAutoReverse(true);
+				        st.play();
+						background.getChildren().add(iv);
 						NotProceedSubScene.moveSubScene();
 					}
 
 				}
 			}
 		};
+	}
+
+	protected void setFrogLives(int n) {
+		froglives.removeLives();
+		addFrogLives(n);
+		
 	}
 
 	public void settingLevel(int levelNumber) {
@@ -445,6 +457,27 @@ public class Main {
 			break;
 		case 3:
 			level = new Level(background, 3);
+			break;
+		case 4:
+			level = new Level(background, 4);
+			break;
+		case 5:
+			level = new Level(background, 5);
+			break;
+		case 6:
+			level = new Level(background, 6);
+			break;
+		case 7:
+			level = new Level(background, 7);
+			break;
+		case 8:
+			level = new Level(background, 8);
+			break;
+		case 9:
+			level = new Level(background, 9);
+			break;
+		case 10:
+			level = new Level(background, 10);
 			break;
 		}
 
