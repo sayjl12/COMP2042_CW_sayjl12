@@ -492,7 +492,7 @@ public class Main {
 		background.add(new End(272, 77));
 		background.add(new End(399, 77));
 		background.add(new End(527, 77));
-		
+		background.add(new Bug());
 		background.start();
 		start();
 
