@@ -1,6 +1,7 @@
 package p4_group_8_repo;
 
 import java.util.ArrayList;
+
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
@@ -293,6 +294,9 @@ public class Animal extends Actor {
 			 if (getIntersectingObjects(End.class).get(0).isActivated()) {
 				 move(0,movement+1);
 			 }else {
+				 if(getIntersectingObjects(Bug.class).size() >= 1 && !noMove) {
+						points += 200;
+						changeScore = true;}
 				 points += 50;
 				 points -= 10;
 				 changeScore = true;
