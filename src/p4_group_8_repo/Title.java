@@ -1,18 +1,23 @@
 package p4_group_8_repo;
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
-public class Title extends Actor {
+/**
+ * This class set the title of the game.
+ * @author User
+ * @see ImageView
+ *
+ */
+public class Title extends ImageView {
 
-	public Title(int size, int xpos, int ypos) {
-		setImage(new Image("file:src/p4_group_8_repo/titleimage.png", size, size, true, true));
-		setX(xpos);
-		setY(ypos);
-	}
-
-	@Override
-	public void act(long now) {
-		// TODO Auto-generated method stub
-
+	/**
+	 * Class constructor.
+	 * Set the image and position of the game title.
+	 */
+	public Title() {
+		setImage(new Image("file:src/p4_group_8_repo/titleimage.png", 500, 500, true, true));
+		setX(50);
+		setY(125);
 	}
 }

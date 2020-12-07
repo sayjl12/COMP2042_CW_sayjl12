@@ -10,16 +10,22 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.util.Duration;
 
+/**
+ * This class create the subscene of the game and control the movement of the subscene.
+ * 
+ * @author User
+ * @see SubScene
+ *
+ */
 public class MySubScene extends SubScene {
 
 	private static final String backgroundImage = "file:src/p4_group_8_repo/GreenPanel.png";
 
-	public MySubScene() {
-		super(new AnchorPane(), 600, 650);
-		prefWidth(600);
-		prefHeight(650);
-	}
-
+	/**
+	 * Class constructor.
+	 * Set the desired subscene's image and position throughout the game.
+	 * @param num determine which subscene to be created
+	 */
 	public MySubScene(int num) {
 		super(new AnchorPane(), 600, 650);
 		prefWidth(600);
@@ -65,6 +71,9 @@ public class MySubScene extends SubScene {
 		}
 	}
 
+	/**
+	 * Move the subscene created to be shown to the user.
+	 */
 	public void moveSubScene() {
 		TranslateTransition tt = new TranslateTransition();
 		tt.setDuration(Duration.millis(50));
@@ -73,6 +82,9 @@ public class MySubScene extends SubScene {
 		tt.play();
 	}
 
+	/**
+	 * Move the subscene back to the original position to hide the subscene.
+	 */
 	public void moveBackSubScene() {
 		TranslateTransition tt = new TranslateTransition();
 		tt.setDuration(Duration.millis(50));
@@ -81,6 +93,10 @@ public class MySubScene extends SubScene {
 		tt.play();
 	}
 
+	/**
+	 * Access to the root of the subscene in Anchor Pane.
+	 * @return root of the subscene
+	 */
 	public AnchorPane getPane() {
 		return (AnchorPane) this.getRoot();
 	}
