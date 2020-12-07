@@ -1,16 +1,27 @@
 package p4_group_8_repo;
 
+/**
+ * This class indicate the level to be shown.
+ * @author User
+ *
+ */
 public class Level {
 	MyStage stage;
 	int levelNumber;
 
+	/**
+	 * Class constructor.
+	 * Set the level according to requests.
+	 * @param stage the background stage of the game
+	 * @param num the level to be shown and executed
+	 */
 	public Level(MyStage stage, int num) {
 		this.stage = stage;
 		setLevelNumber(num);
 		
 		switch (levelNumber) {
 		case 1:
-			setLevel10();
+			setLevel1();
 			break;
 		case 2:
 			setLevel2();
@@ -42,14 +53,25 @@ public class Level {
 		}
 	}
 	
+	/**
+	 * Set the level desired.
+	 * @param num the number of the level
+	 */
 	private void setLevelNumber(int num) {
 		levelNumber = num;
 	}
 
+	/**
+	 * Access to the number of the level.
+	 * @return current level's number
+	 */
 	public int getLevelNumber() {
 		return levelNumber;
 	}
 	
+	/**
+	 * Set the obstacles, turtles, female frog and log sprite for Level 1.
+	 */
 	public void setLevel1() {
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1right.png", 500, 532, 2, 45, 45));
 		
@@ -69,9 +91,11 @@ public class Level {
 		stage.add(new Log("file:src/p4_group_8_repo/log3.png", 125, 50, 250, 0.75));
 		stage.add(new Log("file:src/p4_group_8_repo/log3.png", 125, 270, 250, 0.75));
 		stage.add(new Log("file:src/p4_group_8_repo/log3.png", 125, 490, 250, 0.75));
-
+		
 		stage.add(new Log("file:src/p4_group_8_repo/logs.png", 273, 0, 208, -2));
 		stage.add(new Log("file:src/p4_group_8_repo/logs.png", 273, 400, 208, -2));
+		
+		stage.add(new FemaleFrog(50,213,-2));
 		
 		stage.add(new WetTurtle(3,600, 168, -1, 130, 130));
 		stage.add(new WetTurtle(3,400, 168, -1, 130, 130));
@@ -82,6 +106,9 @@ public class Level {
 		stage.add(new Log("file:src/p4_group_8_repo/log3.png", 125, 440, 130, 0.75));
 	}
 	
+	/**
+	 * Set the obstacles, turtles and log sprite for Level 2.
+	 */
 	public void setLevel2() {
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1Left.png", 500, 532, -2, 45, 45));
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1Left.png", 0, 532, -2, 45, 45));
@@ -118,6 +145,9 @@ public class Level {
 		stage.add(new Log("file:src/p4_group_8_repo/log2.png", 148, 440, 130, 0.75));
 	}
 	
+	/**
+	 * Set the obstacles, turtles and log sprite for Level 3.
+	 */
 	public void setLevel3() {
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1right.png", 500, 532, 2, 45, 45));
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1right.png", 0, 532, 2, 45, 45));
@@ -154,6 +184,9 @@ public class Level {
 		stage.add(new Log("file:src/p4_group_8_repo/log3.png", 125, 490, 130, 0.75));
 	}
 	
+	/**
+	 * Set the obstacles, turtles, snake and log sprite for Level 4.
+	 */
 	public void setLevel4() {
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1right.png", 590, 532, 2, 45, 45));
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1right.png", 400, 532, 2, 45, 45));
@@ -197,6 +230,9 @@ public class Level {
 		stage.add(new Log("file:src/p4_group_8_repo/log2.png", 148, 220, 130, 0.75));
 	}
 	
+	/**
+	 * Set the obstacles, turtles, crocodiles, snake and logs sprite for Level 5.
+	 */
 	public void setLevel5() {
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1Left.png", 500, 532, -2, 45, 45));
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1Left.png", 0, 532, -2, 45, 45));
@@ -242,6 +278,9 @@ public class Level {
 		stage.add(new CrocodileHead(508, 120, 1.5, 40,40));
 	}
 	
+	/**
+	 * Set the obstacles, turtles, crocodiles and snake and logs sprite for Level 6.
+	 */
 	public void setLevel6() {
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1right.png", 500, 532, 2, 45, 45));
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1right.png", 0, 532, 2, 45, 45));
@@ -283,6 +322,9 @@ public class Level {
 		stage.add(new CrocodileHead(300, 120, 1.5, 40,40));
 	}
 	
+	/**
+	 * Set the obstacles, turtles, crocodiles, snakes and logs sprite for Level 7.
+	 */
 	public void setLevel7() {
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1Left.png", 500, 532, -2, 45, 45));
 		stage.add(new Obstacle("file:src/p4_group_8_repo/car1Left.png", 0, 532, -2, 45, 45));
@@ -330,6 +372,9 @@ public class Level {
 		
 	}
 	
+	/**
+	 * Set the obstacles, turtles, crocodiles, snakes and logs sprite for Level 8.
+	 */
 	public void setLevel8() {
 		stage.add(new Snake(599,580));
 		
@@ -378,6 +423,9 @@ public class Level {
 		stage.add(new CrocodileHead(300, 120, 0.75, 40,40));
 	}
 	
+	/**
+	 * Set the obstacles, turtles, crocodiles, snakes and logs sprite for Level 9.
+	 */
 	public void setLevel9() {
 		stage.add(new Snake(610,580));
 		
@@ -428,6 +476,9 @@ public class Level {
 		stage.add(new CrocodileHead(300, 120, 0.75, 40,40));
 	}
 	
+	/**
+	 * Set the obstacles, turtles, crocodiles, snakes and logs sprite for Level 10.
+	 */
 	public void setLevel10() {
 		stage.add(new Snake(680,580));
 		

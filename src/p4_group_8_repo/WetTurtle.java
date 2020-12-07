@@ -2,6 +2,13 @@ package p4_group_8_repo;
 
 import javafx.scene.image.Image;
 
+/**
+ * This class creates a turtle sprite which able to sunk into the river.
+ * 
+ * @author User
+ * @see Actor
+ *
+ */
 public class WetTurtle extends Actor {
 	Image turtle1;
 	Image turtle2;
@@ -12,6 +19,10 @@ public class WetTurtle extends Actor {
 	boolean bool = true;
 	boolean sunk = false;
 
+	/**
+	 * Override the abstract method from Actor Class.
+	 * Set an animated turtle sprite in the game which able to sunk into river.
+	 */
 	@Override
 	public void act(long now) {
 
@@ -37,6 +48,17 @@ public class WetTurtle extends Actor {
 			setX(600);
 	}
 
+	/**
+	 * Class constructor.
+	 * Set the image, position, speed and number of turtles sprite.
+	 * 
+	 * @param n the number of turtle sprite
+	 * @param xpos x coordinate of the turtle sprite
+	 * @param ypos y coordinate of the turtle sprite
+	 * @param s speed of the turtle sprite
+	 * @param w width of the turtle image size
+	 * @param h height of the turtle image size
+	 */
 	public WetTurtle(int n, int xpos, int ypos, int s, int w, int h) {
 		
 		if (n==3) {
@@ -59,6 +81,11 @@ public class WetTurtle extends Actor {
 		setImage(turtle2);
 	}
 
+	/**
+	 * Check if the turtle is sunk into the river.
+	 * 
+	 * @return true if sunk else false
+	 */
 	public boolean isSunk() {
 		return sunk;
 	}
