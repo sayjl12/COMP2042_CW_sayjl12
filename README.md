@@ -13,11 +13,11 @@ Level 1 Game Image
 
 <img src="https://raw.githubusercontent.com/sayjl12/COMP2042_CW_sayjl12/main/Images/GamePage.jpg" alt="drawing" width="400"/> 
 
-#### Add background image
+## Add background image
 A background image is added to the game page. 
 
 **see Main.java line 497-498**
-#### Pause Button
+## Pause Button
 Pause button will pause the game and shows a list of function which the player could view the information of the game, high score of past records and exit the game. 
 
 **see Main.java line 68-69, 71, 510, line 87-190, 293-325**
