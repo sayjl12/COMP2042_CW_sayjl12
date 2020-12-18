@@ -1,4 +1,4 @@
-#Creates a Main Menu Page
+# Creates a Main Menu Page
 
 MainMenu Image
 
@@ -13,7 +13,7 @@ Level 1 Game Image
 
 <img src="https://raw.githubusercontent.com/sayjl12/COMP2042_CW_sayjl12/main/Images/GamePage.jpg" alt="drawing" width="400"/> 
 
-####Add background image
+#### Add background image
 A background image is added to the game page. 
 
 **see Main.java line 497-498**
