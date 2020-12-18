@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="FroggerBuildFile" default="default" basedir="." xmlns:fx="javafx:com.sun.javafx.tools.ant">
+<project name="FroggerBuildFile" default="compile" basedir="." xmlns:fx="javafx:com.sun.javafx.tools.ant">
 	 <property name="javafx.path" value="C:\JavaFX\javafx-sdk-11.0.2"/>
-	 
+	
 	<path id="javafx.classpath">
-          <fileset dir="${javafx.path}/lib/">
-               <include name = "*.jar"/>
-          </fileset>
-     </path>
-    
+        <fileset dir="${javafx.path}/lib/">
+            <include name = "*.jar"/>
+        </fileset>
+		<fileset dir="C:/JUnit/">
+			<include name = "*.jar"/>
+		</fileset>
+		<pathelement location = "bin/p4_group_8_repo"/>
+    </path>
+	
 	<target name="run" depends="compile">
 		<java classname="p4_group_8_repo.MainMenu" classpath="intermediary">
 		</java>
@@ -73,5 +77,13 @@
 		<javac includeantruntime="false" srcdir="./src" destdir="intermediary">
 		<classpath refid="javafx.classpath"/>
 		</javac>
+	</target>
+	
+	<target name = "test" depends = "compile">
+	      <junit>
+	         <classpath refid = "javafx.classpath" />
+	         <formatter type = "brief" usefile = "false" />
+	         <test name = "InfoLabelTest" />
+	      </junit>
 	</target>
 </project>
