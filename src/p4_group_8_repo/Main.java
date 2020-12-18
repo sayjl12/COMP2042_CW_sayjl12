@@ -40,7 +40,7 @@ public class Main {
 	boolean isHidden,nextLevel;
 	MySubScene menuSubScene, howToPlaySubScene, HScoreSubScene, ProceedSubScene, NotProceedSubScene,HScoreSubSceneEnd;
 	List<MyButton> arrayOfButton;
-	Level level1, level2, level;
+	Level level;
 	TextField tf;
 	ScoreManager sm;
 	Lives froglives;

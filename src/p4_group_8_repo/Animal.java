@@ -139,8 +139,8 @@ public class Animal extends Actor {
 				setImage(new Image("file:src/p4_group_8_repo/cardeath3.png", imgSize, imgSize, true, true));
 			}
 			if (carD == 4) {
-				//numOfLives--;
-				//changeLives = true;
+				numOfLives--;
+				changeLives = true;
 				setX(278);
 				setY(575);
 				carDeath = false;
@@ -165,8 +165,8 @@ public class Animal extends Actor {
 				setImage(new Image("file:src/p4_group_8_repo/cardeath3.png", imgSize, imgSize, true, true));
 			}
 			if (carD == 4) {
-				//numOfLives--;
-				//changeLives = true;
+				numOfLives--;
+				changeLives = true;
 				setX(278);
 				setY(575);
 				snakeDeath = false;
@@ -194,8 +194,8 @@ public class Animal extends Actor {
 				setImage(new Image("file:src/p4_group_8_repo/waterdeath4.png", imgSize, imgSize, true, true));
 			}
 			if (carD == 5) {
-				//numOfLives--;
-				//changeLives = true;
+				numOfLives--;
+				changeLives = true;
 				setX(278);
 				setY(575);
 				waterDeath = false;
@@ -223,8 +223,8 @@ public class Animal extends Actor {
 				setImage(new Image("file:src/p4_group_8_repo/waterdeath4.png", imgSize, imgSize, true, true));
 			}
 			if (carD == 5) {
-				//numOfLives--;
-				//changeLives = true;
+				numOfLives--;
+				changeLives = true;
 				setX(278);
 				setY(575);
 				crocodileDeath = false;
@@ -235,7 +235,7 @@ public class Animal extends Actor {
 		}
 		
 		if (getIntersectingObjects(Obstacle.class).size() >= 1) {
-			carDeath = false;
+			carDeath = true;
 		}
 		
 		if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) {
@@ -269,7 +269,7 @@ public class Animal extends Actor {
 			move(-1, 0);
 		} else if (getIntersectingObjects(WetTurtle.class).size() >= 1) {
 			if (getIntersectingObjects(WetTurtle.class).get(0).isSunk()) {
-				waterDeath = false;
+				waterDeath = true;
 			} else 
 				move(-1, 0);
 		} else if (getIntersectingObjects(End.class).size() >= 1) {
