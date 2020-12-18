@@ -374,7 +374,7 @@ public class Main {
 	 * Start the game screen, music and timer.
 	 */
 	public void start() {
-		//background.playMusic();
+		background.playMusic();
 		createTimer();
 		timer.start();
 	}
@@ -413,7 +413,7 @@ public class Main {
 					setNumber(animal.getPoints());
 				}
 				if (animal.getStop()) {					
-					// background.stopMusic();
+					background.stopMusic();
 					nextLevel = false;
 					stop();			
 					background.stop();

@@ -43,7 +43,7 @@ public class MainMenu extends Application {
 		stage.setScene(scene);
 		stage.show();
 		
-		//background.playMainMenuMusic();
+		background.playMainMenuMusic();
 		
 		addTitle();
 		createStartButton();
@@ -75,7 +75,7 @@ public class MainMenu extends Application {
 			public void handle(ActionEvent e) {
 				Main maingame = new Main(1);
 				background.getScene().setRoot(maingame.getBackground());
-				//background.stopMusic();
+				background.stopMusic();
 			}
 		});
 		addButton(btnStart);
