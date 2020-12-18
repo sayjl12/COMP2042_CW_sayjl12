@@ -297,7 +297,7 @@ public class Animal extends Actor {
 				 reset = true;
 			 }	
 		} else if (getY() < 305) {
-			waterDeath = false;
+			waterDeath = true;
 		}
 		if (getStop()) {
 			points += 1000;
