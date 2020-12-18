@@ -78,12 +78,4 @@
 		<classpath refid="javafx.classpath"/>
 		</javac>
 	</target>
-	
-	<target name = "test" depends = "compile">
-	      <junit>
-	         <classpath refid = "javafx.classpath" />
-	         <formatter type = "brief" usefile = "false" />
-	         <test name = "InfoLabelTest" />
-	      </junit>
-	</target>
 </project>
