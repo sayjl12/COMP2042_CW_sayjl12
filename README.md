@@ -2,7 +2,7 @@
 
 MainMenu Image
 
-<img src="https://raw.githubusercontent.com/sayjl12/COMP2042_CW_sayjl12/main/Images/MainMenu.jpg?token=APQEPQANMIW4IRGMRQODNHS73S2GQ" alt="drawing" width="400"/>
+<img src="https://raw.githubusercontent.com/sayjl12/COMP2042_CW_sayjl12/main/Images/MainMenu.jpg" alt="drawing" width="400"/>
 
 The main menu page consists of start game button which lead to the game page, how to play button which shows the information of the game and an exit button. Main Menu page created in another java class independently. The start game button will change the stage of the screen to the game page. In the meanwhile, how to play button will show a subscene of the screen and display the information of the game. All these buttons contain a set of function including design and sound effect.  
 
@@ -11,7 +11,7 @@ The main menu page consists of start game button which lead to the game page, ho
 # Screenshot of Game
 Level 1 Game Image
 
-<img src="https://raw.githubusercontent.com/sayjl12/COMP2042_CW_sayjl12/main/Images/GamePage.jpg?token=APQEPQDZDCD3SBUTFL3WOKC73S2C6" alt="drawing" width="400"/> 
+<img src="https://raw.githubusercontent.com/sayjl12/COMP2042_CW_sayjl12/main/Images/GamePage.jpg" alt="drawing" width="400"/> 
 
 ####Add background image
 A background image is added to the game page. 
